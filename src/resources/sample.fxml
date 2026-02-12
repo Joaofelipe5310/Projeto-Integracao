@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.TreeView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+    <children>
+      <Text layoutX="14.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="João Felipe" />
+      <Separator layoutX="10.0" layoutY="37.0" prefHeight="3.0" prefWidth="980.0" />
+      <Accordion layoutX="14.0" layoutY="54.0" prefHeight="378.0" prefWidth="980.0">
+        <panes>
+          <TitledPane fx:id="Line" animated="false" text="Linhas">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ComboBox fx:id="comboOne" layoutX="126.0" layoutY="14.0" prefWidth="150.0" />
+                        <Text layoutX="14.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Selecione uma linha" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </TitledPane>
+          <TitledPane fx:id="Model" animated="false" prefHeight="275.0" prefWidth="980.0" text="Modelos">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="232.0" prefWidth="978.0">
+                     <children>
+                        <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lista de Modelos" />
+                        <TreeView fx:id="Tree1" layoutX="123.0" layoutY="14.0" prefHeight="200.0" prefWidth="200.0" />
+                        <TreeView fx:id="Tree2" layoutX="123.0" layoutY="14.0" prefHeight="200.0" prefWidth="200.0" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </TitledPane>
+        </panes>
+      </Accordion>
+   </children>
+</Pane>
