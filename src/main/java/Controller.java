@@ -77,7 +77,7 @@ public class Controller {
         Tree2.setDisable(true);
         Tree2.setVisible(false);
     }
-//oie
+//oieee
     public void setComboBoxes() {
         comboOne.getItems().addAll("Cronos", "Ares");
         comboOne.valueProperty().addListener(new ChangeListener<String>() {
