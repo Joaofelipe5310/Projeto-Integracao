@@ -20,12 +20,12 @@ public class Controller {
     @FXML
     public void initialize() {
         setComboBoxes();
-         setTreeViews();
-         setModelos();
+        setTreeViews();
+        setModels();
 
     }
 
-    public void setModelos() {
+    public void setModels() {
             Model.setDisable(true);
             Model.setExpanded(false);
         }
@@ -52,8 +52,7 @@ public class Controller {
 
 
         TreeItem<String> rootTWO = new TreeItem<>("Cronos");
-
-            TreeItem<String> branchTWO = new TreeItem<>("Cronos Old");
+        TreeItem<String> branchTWO = new TreeItem<>("Cronos Old");
         TreeItem<String> leaf1TWO = new TreeItem<>("Cronos 6001-A");
         TreeItem<String> leaf2TWO = new TreeItem<>("Cronos 6003");
         TreeItem<String> leaf3TWO = new TreeItem<>("Cronos 7023");
@@ -78,7 +77,6 @@ public class Controller {
         Tree2.setDisable(true);
         Tree2.setVisible(false);
     }
-    //oie
 
     public void setComboBoxes() {
         comboOne.getItems().addAll("Cronos", "Ares");
@@ -101,7 +99,8 @@ public class Controller {
                     Tree2.setDisable(true);
                     Tree2.setVisible(false);
                 } else {
-                    System.out.println("ésobrepae");
+                    Model.setDisable(true);
+                    Model.setExpanded(false);
                 }
 
             }
