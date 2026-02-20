@@ -31,7 +31,6 @@
                      <children>
                         <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lista de Modelos" />
                         <TreeView fx:id="Tree1" layoutX="123.0" layoutY="14.0" prefHeight="200.0" prefWidth="200.0" />
-                        <TreeView fx:id="Tree2" layoutX="123.0" layoutY="14.0" prefHeight="200.0" prefWidth="200.0" />
                      </children>
                   </AnchorPane>
             </content>
