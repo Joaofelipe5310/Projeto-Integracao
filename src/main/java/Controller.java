@@ -9,47 +9,46 @@ import static org.example.Types.*;
 public class Controller {
 
     @FXML
-    private ComboBox<Types> comboOne;
+    private ComboBox<Types> cbDevice;
 
     @FXML
-    private TreeView<String> Tree1;
+    private TreeView<String> treeData;
 
     @FXML
-    private TitledPane Model;
+    private TitledPane tpMeters;
 
 
     @FXML
     public void initialize() {
-        setModels();
+        setTp();
         setCombo();
     }
 
-    public void setModels() {
-        Model.setDisable(true);
-        Model.setExpanded(false);
+    public void setTp() {
+        tpMeters.setDisable(true);
+        tpMeters.setExpanded(false);
     }
 
     public void setCombo() {
-        comboOne.getItems().add(CRONOS);
-        comboOne.getItems().add(ARES);
+        cbDevice.getItems().addAll(CRONOS, ARES);
 
-        comboOne.valueProperty().addListener(new ChangeListener<Types>()
+        cbDevice.valueProperty().addListener(new ChangeListener<Types>()
         {
             @Override
             public void changed(ObservableValue<? extends Types> observable, Types oldValue, Types newValue)
             {
-                Model.setDisable(false);
-                Model.setExpanded(true);
+                tpMeters.setDisable(false);
+                tpMeters.setExpanded(true);
 
-                Types meter = comboOne.getValue();
+                Types meter = cbDevice.getValue();
                 TreeItem<String> root = new TreeItem<>(meter.getLabel());
                 TreeItem<String> branch;
                 TreeItem<String> leaf;
                 for (Types child : meter.getChildren()) {
                     branch = new TreeItem<>(child.getLabel());
                     root.getChildren().add(branch);
-                    for (Types grandchild : child.getChildren()) {
-                        leaf = new TreeItem<>(grandchild.getLabel());
+                    for (Types grandChild : child.getChildren()) {
+                        leaf = new TreeItem<>(grandChild.getLabel());
                         branch.getChildren().add(leaf);
                     }
                 }
@@ -57,7 +56,7 @@ public class Controller {
 
                 root.setExpanded(true);
 
-                Tree1.setRoot(root);
+                treeData.setRoot(root);
 
             }
         });

@@ -19,18 +19,18 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <ComboBox fx:id="comboOne" layoutX="126.0" layoutY="14.0" prefWidth="150.0" />
+                        <ComboBox fx:id="comboBox" layoutX="126.0" layoutY="14.0" prefWidth="150.0" />
                         <Text layoutX="14.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Selecione uma linha" />
                      </children>
                   </AnchorPane>
             </content>
           </TitledPane>
-          <TitledPane fx:id="Model" animated="false" prefHeight="275.0" prefWidth="980.0" text="Modelos">
+          <TitledPane fx:id="tpMeters" animated="false" prefHeight="275.0" prefWidth="980.0" text="Modelos">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="232.0" prefWidth="978.0">
                      <children>
                         <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lista de Modelos" />
-                        <TreeView fx:id="Tree1" layoutX="123.0" layoutY="14.0" prefHeight="200.0" prefWidth="200.0" />
+                        <TreeView fx:id="treeData" layoutX="123.0" layoutY="14.0" prefHeight="200.0" prefWidth="200.0" />
                      </children>
                   </AnchorPane>
             </content>
