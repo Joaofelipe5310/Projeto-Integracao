@@ -21,7 +21,7 @@ public class Controller {
     @FXML
     public void initialize() {
         setTp();
-        setCombo();
+        setcbDevice();
     }
 
     public void setTp() {
@@ -29,7 +29,7 @@ public class Controller {
         tpMeters.setExpanded(false);
     }
 
-    public void setCombo() {
+    public void setcbDevice() {
         cbDevice.getItems().addAll(CRONOS, ARES);
 
         cbDevice.valueProperty().addListener(new ChangeListener<Types>()
