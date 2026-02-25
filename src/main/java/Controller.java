@@ -3,7 +3,6 @@ import javafx.scene.control.*;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import org.example.Types;
-
 import static org.example.Types.*;
 
 public class Controller {
@@ -21,7 +20,7 @@ public class Controller {
     @FXML
     public void initialize() {
         setTp();
-        setcbDevice();
+        setCbDevice();
     }
 
     public void setTp() {
@@ -29,7 +28,7 @@ public class Controller {
         tpMeters.setExpanded(false);
     }
 
-    public void setcbDevice() {
+    public void setCbDevice() {
         cbDevice.getItems().addAll(CRONOS, ARES);
 
         cbDevice.valueProperty().addListener(new ChangeListener<Types>()
