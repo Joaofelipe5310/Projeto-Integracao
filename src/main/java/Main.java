@@ -3,10 +3,6 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-
-import javax.swing.*;
 import java.util.Objects;
 
 public class Main extends Application {
