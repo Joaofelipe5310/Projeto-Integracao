@@ -9,5 +9,8 @@
         <module name="jfxpl" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Backend_Projeto1" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
