@@ -11,8 +11,6 @@ import org.hibernate.Hibernate;
 
 import java.util.List;
 
-import static java.nio.file.Files.lines;
-
 public class Controller {
 
     @FXML

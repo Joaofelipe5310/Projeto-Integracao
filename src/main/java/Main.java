@@ -8,11 +8,21 @@ import java.util.Objects;
 public class Main extends Application {
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("sample.fxml")));
-        primaryStage.setTitle("Projeto de Integração");
-        primaryStage.setScene(new Scene(root));
-        primaryStage.show();
-    }
+    public void start(Stage primaryStage) {
+        try {
+            System.out.println(getClass().getResource("/fxml/SBpage.fxml"));
 
+            FXMLLoader loader = new FXMLLoader(
+                    getClass().getResource("/fxml/SBpage.fxml")
+            );
+
+            Scene scene = new Scene(loader.load());
+            primaryStage.setTitle("Projeto de Integração");
+            primaryStage.setScene(scene);
+            primaryStage.show();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
