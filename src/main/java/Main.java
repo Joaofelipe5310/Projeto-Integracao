@@ -11,11 +11,8 @@ public class Main extends Application {
     public void start(Stage primaryStage) {
         try {
             System.out.println(getClass().getResource("/fxml/SBpage.fxml"));
-
             FXMLLoader loader = new FXMLLoader(
-                    getClass().getResource("/fxml/SBpage.fxml")
-            );
-
+                    getClass().getResource("/fxml/SBpage.fxml"));
             Scene scene = new Scene(loader.load());
             primaryStage.setTitle("Projeto de Integração");
             primaryStage.setScene(scene);
