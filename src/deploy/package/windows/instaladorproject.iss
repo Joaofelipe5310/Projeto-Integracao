@@ -1,4 +1,4 @@
-#define MyAppName "AGRVAI"
+#define MyAppName "Project 3"
 #define MyAppVersion "3.0"
 #define MyAppPublisher "Felipe"
 #define MyAppURL "http://www.example.com/"
@@ -28,17 +28,20 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 
 [Files]
 Source: "..\..\..\..\target\jfx\app\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
-
+Source: "..\..\..\..\target\jfx\native\jfxpl-0.0.1-SNAPSHOT\favicon.ico"; DestDir: "{app}"; Flags: ignoreversion
+                                                                                                              
 [Icons]
 Name: "{commonprograms}\{#MyAppName}"; \
 Filename: "javaw.exe"; \
 Parameters: "-jar ""{app}\{#MyAppJarName}"""; \
-WorkingDir: "{app}"
+WorkingDir: "{app}"; \
+IconFilename: "{app}\app.ico"
 
 Name: "{commondesktop}\{#MyAppName}"; \
 Filename: "javaw.exe"; \
 Parameters: "-jar ""{app}\{#MyAppJarName}"""; \
 WorkingDir: "{app}"; \
+IconFilename: "{app}\app.ico"; \
 Tasks: desktopicon
 
 [Run]
