@@ -15,7 +15,7 @@ CREATE TABLE Modelo (
                         Categoria_id INTEGER NOT NULL REFERENCES Categoria(id) ON DELETE CASCADE
 );
 
-INSERT INTO father (name)
+INSERT INTO Linha (name)
 VALUES ('Cronos')
     RETURNING id;
 
