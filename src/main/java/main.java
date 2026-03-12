@@ -3,7 +3,7 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class Main extends Application {
+public class main extends Application {
 
     @Override
     public void start(Stage primaryStage) {
@@ -22,5 +22,8 @@ public class Main extends Application {
         primaryStage.setOnCloseRequest(e -> {
             System.exit(0);
         });
+    }
+    public static void main(String[] args) {
+        launch(args);
     }
 }
