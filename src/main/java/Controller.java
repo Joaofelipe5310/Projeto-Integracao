@@ -3,7 +3,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import org.example.DBcon;
+import org.example.DatabaseConnection;
 import org.example.Line;
 import org.example.Category;
 import org.example.Model;
@@ -36,7 +36,7 @@ public class Controller {
 
 
     public void setCbDevice() {
-        List<Line> lines = DBcon.getLines();
+        List<Line> lines = DatabaseConnection.getLines();
         cbDevice.getItems().addAll(FXCollections.observableList(lines));
 
       cbDevice.valueProperty().addListener(new ChangeListener<Line>() {
