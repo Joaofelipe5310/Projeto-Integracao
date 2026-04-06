@@ -1,21 +1,26 @@
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import org.example.Types;
-import static org.example.Types.*;
+import org.example.DatabaseConnection;
+import org.example.Line;
+import org.example.Category;
+import org.example.Model;
+import org.hibernate.Hibernate;
+
+import java.util.List;
 
 public class Controller {
 
     @FXML
-    private ComboBox<Types> cbDevice;
+    private ComboBox<Line> cbDevice;
 
     @FXML
     private TreeView<String> treeData;
 
     @FXML
     private TitledPane tpMeters;
-
 
     @FXML
     public void initialize() {
@@ -28,38 +33,35 @@ public class Controller {
         tpMeters.setExpanded(false);
     }
 
+
+
     public void setCbDevice() {
-        cbDevice.getItems().addAll(CRONOS, ARES);
+        List<Line> lines = DatabaseConnection.getLines();
+        cbDevice.getItems().addAll(FXCollections.observableList(lines));
 
-        cbDevice.valueProperty().addListener(new ChangeListener<Types>()
-        {
-            @Override
-            public void changed(ObservableValue<? extends Types> observable, Types oldValue, Types newValue)
-            {
-                tpMeters.setDisable(false);
-                tpMeters.setExpanded(true);
+      cbDevice.valueProperty().addListener(new ChangeListener<Line>() {
+          @Override
+          public void changed(ObservableValue<? extends Line> observable, Line oldValue, Line newValue) {
+              tpMeters.setDisable(false);
+              tpMeters.setExpanded(true);
 
-                Types meter = cbDevice.getValue();
-                TreeItem<String> root = new TreeItem<>(meter.getLabel());
-                TreeItem<String> branch;
-                TreeItem<String> leaf;
-                for (Types child : meter.getChildren()) {
-                    branch = new TreeItem<>(child.getLabel());
-                    root.getChildren().add(branch);
-                    for (Types grandChild : child.getChildren()) {
-                        leaf = new TreeItem<>(grandChild.getLabel());
-                        branch.getChildren().add(leaf);
-                    }
-                }
+              Line meter = cbDevice.getValue();
+              TreeItem<String> root = new TreeItem<>(meter.getName());
+              TreeItem<String> branch;
+              for (Category cat : meter.getCat()) {
+                  branch = new TreeItem<>(cat.getName());
+                  root.getChildren().add(branch);
+                  for (Model model : cat.getModel()) {
+                      branch.getChildren().add(new TreeItem<>(model.getName()));
+                  }
+              }
+              treeData.setRoot(root);
+              root.setExpanded(true);
+          }
+      });
 
-
-                root.setExpanded(true);
-
-                treeData.setRoot(root);
-
-            }
-        });
     }
+
 }
 
 
