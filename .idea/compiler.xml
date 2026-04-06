@@ -11,4 +11,10 @@
       </profile>
     </annotationProcessing>
   </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Backend_Projeto1" options="-parameters" />
+      <module name="jfxpl" options="" />
+    </option>
+  </component>
 </project>

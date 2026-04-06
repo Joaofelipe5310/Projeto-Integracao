@@ -6,7 +6,7 @@ import javafx.scene.image.Image;
 import java.util.Objects;
 
 
-public class main extends Application {
+public class Main extends Application {
     @Override
     public void start(Stage primaryStage) {
         try {
