@@ -1,20 +1,26 @@
+import API.DatabaseConnection;
+import API.service.LineService;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import org.example.DatabaseConnection;
-import org.example.Line;
-import org.example.Category;
-import org.example.Model;
-import org.hibernate.Hibernate;
+import API.DTO.LineDTO;
+import API.DTO.CategoryDTO;
+import API.DTO.ModelDTO;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.List;
 
 public class Controller {
 
     @FXML
-    private ComboBox<Line> cbDevice;
+    private ComboBox<LineDTO> cbDevice;
 
     @FXML
     private TreeView<String> treeData;
@@ -34,34 +40,65 @@ public class Controller {
     }
 
 
+    public List<LineDTO> con() {
+        try {
+            URL url = new URL("http://localhost:8080/lines");
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+
+            conn.setRequestMethod("GET");
+
+            BufferedReader reader = new BufferedReader(
+                    new InputStreamReader(conn.getInputStream())
+            );
+
+            StringBuilder response = new StringBuilder();
+            String line;
+
+            while ((line = reader.readLine()) != null) {
+                response.append(line);
+            }
+
+            reader.close();
+
+            ObjectMapper mapper = new ObjectMapper();
+
+            return mapper.readValue(response.toString(), new TypeReference<List<LineDTO>>() {}
+            );
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+
 
     public void setCbDevice() {
-        List<Line> lines = DatabaseConnection.getLines();
+
+        List<LineDTO> lines = con();
         cbDevice.getItems().addAll(FXCollections.observableList(lines));
 
-      cbDevice.valueProperty().addListener(new ChangeListener<Line>() {
-          @Override
-          public void changed(ObservableValue<? extends Line> observable, Line oldValue, Line newValue) {
-              tpMeters.setDisable(false);
-              tpMeters.setExpanded(true);
+        cbDevice.valueProperty().addListener(new ChangeListener<LineDTO>() {
+            @Override
+            public void changed(ObservableValue<? extends LineDTO> observable, LineDTO oldValue, LineDTO newValue) {
+                tpMeters.setDisable(false);
+                tpMeters.setExpanded(true);
 
-              Line meter = cbDevice.getValue();
+              LineDTO meter = cbDevice.getValue();
               TreeItem<String> root = new TreeItem<>(meter.getName());
               TreeItem<String> branch;
-              for (Category cat : meter.getCat()) {
+              for (CategoryDTO cat : meter.getCat()) {
                   branch = new TreeItem<>(cat.getName());
                   root.getChildren().add(branch);
-                  for (Model model : cat.getModel()) {
+                  for (ModelDTO model : cat.getModels()) {
                       branch.getChildren().add(new TreeItem<>(model.getName()));
                   }
               }
               treeData.setRoot(root);
               root.setExpanded(true);
-          }
-      });
+            }
+        });
 
     }
 
 }
-
-
