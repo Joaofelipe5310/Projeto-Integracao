@@ -48,7 +48,7 @@ public class Controller {
               LineDTOF meter = cbDevice.getValue();
               TreeItem<String> root = new TreeItem<>(meter.getName());
               TreeItem<String> branch;
-              for (CategoryDTOF cat : meter.getCat()) {
+              for (CategoryDTOF cat : meter.getCategories()) {
                   branch = new TreeItem<>(cat.getName());
                   root.getChildren().add(branch);
                   for (ModelDTOF model : cat.getModels()) {

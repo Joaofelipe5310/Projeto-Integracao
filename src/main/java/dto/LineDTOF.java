@@ -6,16 +6,16 @@ public class LineDTOF {
 
     private int id;
     private String name;
-    private List<CategoryDTOF> cat;
+    private List<CategoryDTOF> categories;
 
     public LineDTOF(){
 
     }
 
-    public LineDTOF(int  id, String name, List<CategoryDTOF> cat) {
+    public LineDTOF(int  id, String name, List<CategoryDTOF> categories) {
         this.id = id;
         this.name = name;
-        this.cat = cat;
+        this.categories = categories;
 
     }
 
@@ -28,6 +28,6 @@ public class LineDTOF {
         return name;
     }
 
-    public List<CategoryDTOF> getCat() { return cat;}
+    public List<CategoryDTOF> getCategories() { return categories;}
 
 }
