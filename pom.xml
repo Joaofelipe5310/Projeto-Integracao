@@ -6,13 +6,13 @@
     <artifactId>Projeto_Integracao</artifactId>
     <version>1.0</version>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.example</groupId>
-            <artifactId>Backend_Projeto1</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
 
+    <dependencies>
         <dependency>
             <groupId>org.json</groupId>
             <artifactId>json</artifactId>
@@ -30,13 +30,13 @@
             <artifactId>javafx-controls</artifactId>
             <version>12.0.2</version>
         </dependency>
+        <dependency>
+            <groupId>org.example</groupId>
+            <artifactId>Backend_Projeto1</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
-    <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
 
     <build>
 
