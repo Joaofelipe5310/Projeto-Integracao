@@ -12,7 +12,7 @@ import java.util.List;
 
 public class apiService {
 
-    public List<LineDTOF> con() {
+    public List<LineDTOF> connection() {
         try {
             URL url = new URL("http://localhost:8080/lines");
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();

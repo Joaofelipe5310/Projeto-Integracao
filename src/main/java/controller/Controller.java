@@ -36,7 +36,7 @@ public class Controller {
     public void setCbDevice() {
 
         apiService service = new apiService();
-        List<LineDTOF> lines = service.con();
+        List<LineDTOF> lines = service.connection();
         cbDevice.getItems().addAll(FXCollections.observableList(lines));
 
         cbDevice.valueProperty().addListener(new ChangeListener<LineDTOF>() {
