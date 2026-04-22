@@ -21,6 +21,7 @@ public class Main extends Application {
                 System.exit(0);
             });
             primaryStage.show();
+            System.out.println("testando isso aqui -by: chico bioca");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -30,5 +31,6 @@ public class Main extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+
 
 }
