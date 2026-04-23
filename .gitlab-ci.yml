@@ -1,9 +1,9 @@
 stages:
-    -build
+  - build
+
 build_develop:
-    stage: build
-    script:
-        - mvn clean install
-    only:
-        - feature/project_four
-    
+  stage: build
+  script:
+    - mvn clean install
+  only:
+    - feature/project_four
