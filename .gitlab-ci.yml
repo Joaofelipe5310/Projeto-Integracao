@@ -1,0 +1,9 @@
+stages:
+    -build
+build_develop:
+    stage: build
+    script:
+        - mvn clean install
+    only:
+        - feature/project_four
+    
