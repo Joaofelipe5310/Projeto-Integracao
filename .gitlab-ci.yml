@@ -3,6 +3,8 @@ stages:
 
 build_develop:
   stage: build
+  tags:
+    - java8
   script:
     - mvn clean install
   only:
