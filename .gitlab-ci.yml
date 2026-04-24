@@ -1,14 +1,10 @@
-default:
-  tags:
-    - javafx
-
 stages:
   - build
 
 build_develop:
   stage: build
   tags:
-    - java8
+    - javafx
   script:
     - mvn clean install
   only:
