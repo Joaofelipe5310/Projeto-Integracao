@@ -9,3 +9,6 @@ build_develop:
     - mvn clean install
   only:
     - feature/project_four
+  artifacts:
+    paths:
+      - target/jfx/native/Projeto_Integracao-1.0.exe
