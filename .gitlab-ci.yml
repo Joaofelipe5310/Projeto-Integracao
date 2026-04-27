@@ -1,0 +1,14 @@
+stages:
+  - build
+
+build_develop:
+  stage: build
+  tags:
+    - javafx
+  script:
+    - mvn clean install
+  only:
+    - feature/project_four
+  artifacts:
+    paths:
+      - target/jfx/native/Projeto_Integracao-1.0.exe
