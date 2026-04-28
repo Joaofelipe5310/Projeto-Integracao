@@ -11,9 +11,9 @@ build_develop:
     # Builda o backend
     - cd backend-integracao
     - mvn clean install
+    - cd target
     - java -jar target/Backend_Projeto1-1.0-SNAPSHOT.jar
-    - cd ..
-
+    - cd ../../
     # Builda o front
     - mvn clean package
 
