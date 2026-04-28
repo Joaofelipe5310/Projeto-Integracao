@@ -6,9 +6,19 @@ build_develop:
   tags:
     - javafx
   script:
+    - git clone -b feature/project_four https://joao_felipe:gldt-PcMM5sx-x_9KmadeEFDF@gitlab.com/projeto-de-integracao2/backend-integracao.git
+
+    # Builda o backend
+    - cd backend-integracao
     - mvn clean install
+    - cd ..
+
+    # Builda o front
+    - mvn clean package
+
   only:
-    - feature/project_four
+      - feature/project_four
+
   artifacts:
     paths:
       - target/jfx/native/Projeto_Integracao-1.0.exe
