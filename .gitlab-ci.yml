@@ -13,6 +13,10 @@ build_develop:
     - cd backend-integracao
     - ls
     - mvn clean install
+    - ls
+    - -cd target
+    - ls
+    - java -jar Backend_Projeto1-1.0-SNAPSHOT.jar
     - cd ..
     - ls
     - cd ..
