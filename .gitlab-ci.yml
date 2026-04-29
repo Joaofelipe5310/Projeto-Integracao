@@ -21,13 +21,12 @@ build_develop:
   artifacts:
     paths:
       - target/jfx/native/Projeto_Integracao-1.0.exe
-      - target/Backend_Projeto1-1.0-SNAPSHOT.jar
+      - backend-integracao/target/Backend_Projeto1-1.0-SNAPSHOT.jar
 
 run_develop:
   stage: run
   tags:
     - javafx
   script:
-    - ls
-    - cd target
+    - cd backend-integracao/target
     - java -jar Backend_Projeto1-1.0-SNAPSHOT.jar
