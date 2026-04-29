@@ -14,7 +14,7 @@ build_develop:
     - ls
     - mvn clean install
     - ls
-    - -cd target
+    - cd target
     - ls
     - java -jar Backend_Projeto1-1.0-SNAPSHOT.jar
     - cd ..
