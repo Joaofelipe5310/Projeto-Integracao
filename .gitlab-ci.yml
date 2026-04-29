@@ -1,26 +1,18 @@
 stages:
   - build
+  - run
 
 build_develop:
   stage: build
   tags:
     - javafx
   script:
-    - ls
     - git clone -b feature/project_four https://joao_felipe:gldt-PcMM5sx-x_9KmadeEFDF@gitlab.com/projeto-de-integracao2/backend-integracao.git
-    - ls
     # Builda o backend
     - cd backend-integracao
-    - ls
     - mvn clean install
-    - ls
-    - cd target
-    - ls
-    - java -jar Backend_Projeto1-1.0-SNAPSHOT.jar
     - cd ..
-    - ls
     - cd ..
-    - ls
     # Builda o front
     - mvn clean package
 
@@ -30,3 +22,13 @@ build_develop:
   artifacts:
     paths:
       - target/jfx/native/Projeto_Integracao-1.0.exe
+      - target/Backend_Projeto1-1.0-SNAPSHOT.jar
+
+run_develop:
+  stage: run
+  tags:
+    - javafx
+  script:
+    - ls
+    - cd target
+    - java -jar Backend_Projeto1-1.0-SNAPSHOT.jar
