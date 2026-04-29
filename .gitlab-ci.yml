@@ -11,7 +11,7 @@ build_develop:
     # Builda o backend
     - cd backend-integracao
     - mvn clean install
-    - cd ../../
+    - cd ..
     # Builda o front
     - mvn clean package
 
