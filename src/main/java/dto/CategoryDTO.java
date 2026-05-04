@@ -2,17 +2,17 @@ package dto;
 
 import java.util.List;
 
-public class CategoryDTOF {
+public class CategoryDTO {
 
     private int id;
     private String name;
-    private List<dto.ModelDTOF> models;
+    private List<dto.ModelDTO> models;
 
-    public CategoryDTOF(){
+    public CategoryDTO(){
 
     }
 
-    public CategoryDTOF(int id, String name, List<ModelDTOF> models) {
+    public CategoryDTO(int id, String name, List<ModelDTO> models) {
         this.id = id;
         this.name = name;
         this.models = models;
@@ -26,5 +26,5 @@ public class CategoryDTOF {
         return name;
     }
 
-    public List<ModelDTOF> getModels() { return models; }
+    public List<ModelDTO> getModels() { return models; }
 }

@@ -1,45 +1,31 @@
 package service;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import dto.LineDTOF;
-
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
+import dto.LineDTO;
+import org.springframework.http.*;
+import org.springframework.web.client.RestTemplate;
 import java.net.URL;
+import java.util.Arrays;
 import java.util.List;
 
 public class apiService {
 
-    public List<LineDTOF> connection() {
+    public List<LineDTO> connection() {
         try {
+
+            RestTemplate restTemplate = new RestTemplate();
             URL url = new URL("http://localhost:8080/lines");
-            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 
-            conn.setRequestMethod("GET");
+            ResponseEntity<LineDTO[]> response = restTemplate.exchange(url.toURI(), HttpMethod.GET,  HttpEntity.EMPTY, LineDTO[].class);
 
-            BufferedReader reader = new BufferedReader(
-                    new InputStreamReader(conn.getInputStream())
-            );
+            LineDTO[] lines = response.getBody();
+            return Arrays.asList(lines);
 
-            StringBuilder response = new StringBuilder();
-            String line;
 
-            while ((line = reader.readLine()) != null) {
-                response.append(line);
-            }
-
-            reader.close();
-
-            ObjectMapper mapper = new ObjectMapper();
-
-            return mapper.readValue(response.toString(), new TypeReference<List<LineDTOF>>() {}
-            );
 
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return null;
+
+        return java.util.Collections.emptyList();
     }
 }

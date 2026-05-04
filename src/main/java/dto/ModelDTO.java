@@ -1,15 +1,15 @@
 package dto;
 
-public class ModelDTOF {
+public class ModelDTO {
 
     private int id;
     private String name;
 
-    public ModelDTOF(){
+    public ModelDTO(){
 
     }
 
-    public ModelDTOF(int id, String name) {
+    public ModelDTO(int id, String name) {
         this.id = id;
         this.name = name;
     }

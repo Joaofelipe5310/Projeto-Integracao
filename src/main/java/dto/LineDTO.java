@@ -2,17 +2,17 @@ package dto;
 
 import java.util.List;
 
-public class LineDTOF {
+public class LineDTO {
 
     private int id;
     private String name;
-    private List<CategoryDTOF> categories;
+    private List<CategoryDTO> categories;
 
-    public LineDTOF(){
+    public LineDTO(){
 
     }
 
-    public LineDTOF(int  id, String name, List<CategoryDTOF> categories) {
+    public LineDTO(int  id, String name, List<CategoryDTO> categories) {
         this.id = id;
         this.name = name;
         this.categories = categories;
@@ -28,6 +28,6 @@ public class LineDTOF {
         return name;
     }
 
-    public List<CategoryDTOF> getCategories() { return categories;}
+    public List<CategoryDTO> getCategories() { return categories;}
 
 }

@@ -1,8 +1,8 @@
 package controller;
 
-import dto.CategoryDTOF;
-import dto.LineDTOF;
-import dto.ModelDTOF;
+import dto.CategoryDTO;
+import dto.LineDTO;
+import dto.ModelDTO;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -14,7 +14,7 @@ import java.util.List;
 public class Controller {
 
     @FXML
-    private ComboBox<LineDTOF> cbDevice;
+    private ComboBox<LineDTO> cbDevice;
 
     @FXML
     private TreeView<String> treeData;
@@ -36,22 +36,22 @@ public class Controller {
     public void setCbDevice() {
 
         apiService service = new apiService();
-        List<LineDTOF> lines = service.connection();
+        List<LineDTO> lines = service.connection();
         cbDevice.getItems().addAll(FXCollections.observableList(lines));
 
-        cbDevice.valueProperty().addListener(new ChangeListener<LineDTOF>() {
+        cbDevice.valueProperty().addListener(new ChangeListener<LineDTO>() {
             @Override
-            public void changed(ObservableValue<? extends LineDTOF> observable, LineDTOF oldValue, LineDTOF newValue) {
+            public void changed(ObservableValue<? extends LineDTO> observable, LineDTO oldValue, LineDTO newValue) {
                 tpMeters.setDisable(false);
                 tpMeters.setExpanded(true);
 
-              LineDTOF meter = cbDevice.getValue();
+              LineDTO meter = cbDevice.getValue();
               TreeItem<String> root = new TreeItem<>(meter.getName());
               TreeItem<String> branch;
-              for (CategoryDTOF cat : meter.getCategories()) {
+              for (CategoryDTO cat : meter.getCategories()) {
                   branch = new TreeItem<>(cat.getName());
                   root.getChildren().add(branch);
-                  for (ModelDTOF model : cat.getModels()) {
+                  for (ModelDTO model : cat.getModels()) {
                       branch.getChildren().add(new TreeItem<>(model.getName()));
                   }
               }
