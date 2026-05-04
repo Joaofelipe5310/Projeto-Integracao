@@ -10,7 +10,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) {
         try {
-            Image icon = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/images/Projeto_Integracao-1.0.png")));
+            Image icon = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/images/Projeto_Integracao-1.0-1.0.png")));
             FXMLLoader loader = new FXMLLoader(
                     getClass().getResource("/fxml/SBpage.fxml"));
             Scene scene = new Scene(loader.load());
