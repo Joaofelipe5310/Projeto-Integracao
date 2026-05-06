@@ -46,7 +46,7 @@ public class Controller {
                 tpMeters.setExpanded(true);
 
               LineDTO meter = cbDevice.getValue();
-              TreeItem<String> root = new TreeItem<>(meter.getName());
+              TreeItem<String> root = new TreeItem<>(meter .getName());
               TreeItem<String> branch;
               for (CategoryDTO cat : meter.getCategories()) {
                   branch = new TreeItem<>(cat.getName());
@@ -58,7 +58,8 @@ public class Controller {
               treeData.setRoot(root);
               root.setExpanded(true);
             }
-        });
+         }
+      );
 
     }
 
