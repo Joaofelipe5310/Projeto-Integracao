@@ -6,9 +6,7 @@ import dto.ModelDTO;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import service.apiService;
+import service.LineService;
 import java.util.List;
 
 public class Controller {
@@ -35,31 +33,28 @@ public class Controller {
 
     public void setCbDevice() {
 
-        apiService service = new apiService();
-        List<LineDTO> lines = service.connection();
+        LineService service = new LineService();
+        List<LineDTO> lines = service.restTemplateLine();
         cbDevice.getItems().addAll(FXCollections.observableList(lines));
 
-        cbDevice.valueProperty().addListener(new ChangeListener<LineDTO>() {
-            @Override
-            public void changed(ObservableValue<? extends LineDTO> observable, LineDTO oldValue, LineDTO newValue) {
-                tpMeters.setDisable(false);
-                tpMeters.setExpanded(true);
+        cbDevice.valueProperty().addListener((observable, oldValue, newValue) -> {
+            tpMeters.setDisable(false);
+            tpMeters.setExpanded(true);
 
-              LineDTO meter = cbDevice.getValue();
-              TreeItem<String> root = new TreeItem<>(meter .getName());
-              TreeItem<String> branch;
-              for (CategoryDTO cat : meter.getCategories()) {
-                  branch = new TreeItem<>(cat.getName());
-                  root.getChildren().add(branch);
-                  for (ModelDTO model : cat.getModels()) {
-                      branch.getChildren().add(new TreeItem<>(model.getName()));
-                  }
+          LineDTO meter = cbDevice.getValue();
+          TreeItem<String> root = new TreeItem<>(meter.getName());
+          TreeItem<String> branch;
+          for (CategoryDTO categories : meter.getCategories()) {
+              branch = new TreeItem<>(categories.getName());
+              root.getChildren().add(branch);
+              for (ModelDTO model : categories.getModels()) {
+                  branch.getChildren().add(new TreeItem<>(model.getName()));
               }
-              treeData.setRoot(root);
-              root.setExpanded(true);
-            }
-         }
-      );
+          }
+          treeData.setRoot(root);
+          root.setExpanded(true);
+        }
+        );
 
     }
 

@@ -7,9 +7,9 @@ import java.net.URL;
 import java.util.Arrays;
 import java.util.List;
 
-public class apiService {
+public class LineService {
 
-    public List<LineDTO> connection() {
+    public List<LineDTO> restTemplateLine() {
         try {
 
             RestTemplate restTemplate = new RestTemplate();

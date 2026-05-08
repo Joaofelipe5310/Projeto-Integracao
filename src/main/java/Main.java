@@ -14,7 +14,7 @@ public class Main extends Application {
             FXMLLoader loader = new FXMLLoader(
                     getClass().getResource("/fxml/SBpage.fxml"));
             Scene scene = new Scene(loader.load());
-            primaryStage.setTitle("Projeto de Integração");
+            primaryStage.setTitle("Projeto de Integracao");
             primaryStage.setScene(scene);
             primaryStage.getIcons().add(icon);
             primaryStage.setOnCloseRequest(e -> {

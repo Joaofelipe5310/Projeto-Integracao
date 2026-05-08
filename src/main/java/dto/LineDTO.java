@@ -17,7 +17,7 @@ public class LineDTO {
         this.categories = categories;
     }
 
-    public int getId(){return id; }
+    public int getId() {return id; }
 
     public String getName() { return name; }
 
