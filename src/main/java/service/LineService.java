@@ -9,7 +9,7 @@ import java.util.List;
 
 public class LineService {
 
-    public List<LineDTO> restTemplateLine() {
+    public List<LineDTO> lineEndpointConnectionByRestTemplate() {
         try {
 
             RestTemplate restTemplate = new RestTemplate();

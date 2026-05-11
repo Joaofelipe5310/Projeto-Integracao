@@ -34,7 +34,7 @@ public class Controller {
     public void setCbDevice() {
 
         LineService service = new LineService();
-        List<LineDTO> lines = service.restTemplateLine();
+        List<LineDTO> lines = service.lineEndpointConnectionByRestTemplate();
         cbDevice.getItems().addAll(FXCollections.observableList(lines));
 
         cbDevice.valueProperty().addListener((observable, oldValue, newValue) -> {
