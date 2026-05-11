@@ -22,11 +22,11 @@ public class Controller {
 
     @FXML
     public void initialize() {
-        setTp();
+        setTpMeters();
         setCbDevice();
     }
 
-    public void setTp() {
+    public void setTpMeters() {
         tpMeters.setDisable(true);
         tpMeters.setExpanded(false);
     }
