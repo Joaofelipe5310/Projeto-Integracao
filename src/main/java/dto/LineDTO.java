@@ -8,8 +8,7 @@ public class LineDTO {
     private String name;
     private List<CategoryDTO> categories;
 
-    public LineDTO(){
-    }
+    public LineDTO(){}
 
     public LineDTO(int  id, String name, List<CategoryDTO> categories) {
         this.id = id;

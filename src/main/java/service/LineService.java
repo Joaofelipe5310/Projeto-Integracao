@@ -25,7 +25,6 @@ public class LineService {
             e.printStackTrace();
         }
 
-
         return java.util.Collections.emptyList();
     }
 }

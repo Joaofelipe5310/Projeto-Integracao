@@ -53,9 +53,6 @@ public class Controller {
           }
           treeData.setRoot(root);
           root.setExpanded(true);
-        }
-        );
-
+        });
     }
-
 }

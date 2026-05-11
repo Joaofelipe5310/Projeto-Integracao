@@ -8,9 +8,7 @@ public class CategoryDTO {
     private String name;
     private List<dto.ModelDTO> models;
 
-    public CategoryDTO(){
-
-    }
+    public CategoryDTO(){}
 
     public CategoryDTO(int id, String name, List<ModelDTO> models) {
         this.id = id;
