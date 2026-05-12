@@ -6,13 +6,13 @@
     <artifactId>Projeto_Integracao</artifactId>
     <version>1.0</version>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.example</groupId>
-            <artifactId>Backend_Projeto1</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+        <project.build.sourceEncoding>windows-1252</project.build.sourceEncoding>
+    </properties>
 
+    <dependencies>
         <dependency>
             <groupId>org.json</groupId>
             <artifactId>json</artifactId>
@@ -26,17 +26,19 @@
         </dependency>
 
         <dependency>
-            <groupId>org.openjfx</groupId>
-            <artifactId>javafx-controls</artifactId>
-            <version>12.0.2</version>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.14.0</version>
         </dependency>
-    </dependencies>
 
-    <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>5.3.26</version>
+            <scope>compile</scope>
+        </dependency>
+
+    </dependencies>
 
     <build>
 
