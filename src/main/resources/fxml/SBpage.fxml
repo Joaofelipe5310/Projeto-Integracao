@@ -14,7 +14,7 @@
       prefHeight="500.0" prefWidth="1000.0"
       xmlns="http://javafx.com/javafx/8.0.51"
       xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="Controller">
+      fx:controller="controller.Controller">
     <children>
       <Text layoutX="14.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="João Felipe" />
       <Separator layoutX="10.0" layoutY="37.0" prefHeight="3.0" prefWidth="980.0" />
